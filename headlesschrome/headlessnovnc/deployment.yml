@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: headless
+  name: novnc
+  labels:
+    app: novnc
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: novnc
+  template:
+    metadata:
+      labels:
+        app: novnc
+    spec:
+      containers:
+        - image: faisal2018/headlessnovnc
+          imagePullPolicy: IfNotPresent
+          name: novnc
+          ports:
+            - name: novnc
+              containerPort: 6080
+          livenessProbe:
+          tcpSocket:
+            port: 6080
+          initialDelaySeconds:
+      restartPolicy: Always

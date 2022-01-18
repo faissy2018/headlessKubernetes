@@ -1,0 +1,37 @@
+
+
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: novnc
+  namespace: headless
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    name: novnc
+    port: 6080
+    targetport: 6080
+    nodeport: 32009
+
+  selector:
+    app: novnc
+#apiVersion: v1
+#kind: IngressRoute
+#metadata:
+#name: novnc
+#namespace: headless
+#spec:
+#entryPoints:
+#    - websecure
+#routes:
+#    - match: Host(`cea7c1104a1c.mylabserver.com`)
+#      kind: Rule
+#      services:
+#          - name: novnc
+#            port: 6080
+#tls:
+#   certResolver: le
