@@ -1,28 +1,10 @@
-README
-======
+To tun headless vnc in docker you can use the command
 
-This creates a Docker container with Ubuntu 18.04 and [TightVNC Server](https://tightvnc.com).
+docker run --rm -ti -p 5901:5901 --name docker-ubuntu faisal2018/headlessvnc
 
-To build:
+password for vnc is vncpassword
 
-```bash
-$ make build
-```
+for kubernetes
 
-To run:
-
-```bash
-$ make run
-```
-
-which is a shorthand for:
-
-```bash
-$ docker run --rm -ti -p 5901:5901 --name docker-ubuntu panta/docker-ubuntu-vnc:latest
-```
-
-To get a shell on a running container:
-
-```bash
-$ make shell
-```
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
