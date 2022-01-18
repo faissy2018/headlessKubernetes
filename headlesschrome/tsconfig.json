@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    // Hack to get @types working for newer version of puppeteer
+    "paths": {
+      "puppeteer": ["node_modules/@types/puppeteer"]
+    },
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "lib": [
+      "dom",
+      "es7"
+    ],
+    "removeComments": true,
+    "noImplicitAny": true,
+    "inlineSourceMap": true,
+    "noEmitOnError": false,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "./src/tests/*"
+  ],
+  "include": [
+    "./src/**/*"
+  ]
+}

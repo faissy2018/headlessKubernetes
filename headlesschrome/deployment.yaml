@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: headless
+  name: headlesschrome
+  labels:
+    app: headlesschrome
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: headlesschrome
+  template:
+    metadata:
+      labels:
+        app: headlesschrome
+    spec:
+      containers:
+        - image: faisal2018/headlessbrowserfaisal
+          imagePullPolicy: IfNotPresent
+          name: novnc
+          ports:
+            - name: novnc
+              containerPort: 3000
+          livenessProbe:
+          tcpSocket:
+            port: 3000
+          initialDelaySeconds:
+      restartPolicy: Always
